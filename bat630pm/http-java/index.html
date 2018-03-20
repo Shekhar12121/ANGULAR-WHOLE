@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="angular.min.js"></script>
+	<script>
+	app = angular.module("myapp", [])
+	app.controller("cOne", function($scope, $http) {
+
+		$scope.name;
+		$scope.str;
+		$scope.tmp=false;
+		$scope.y="check for user availablulity";
+	
+		
+		$scope.fun = function() {
+			$scope.str = "";
+			$scope.y="";
+			$scope.tmp=true;
+			str = "demo?name=" + $scope.name;
+			//alert(str);
+			$http.get(str).then(function(x) {
+				//alert(x.data);
+				$scope.tmp=false;
+				if(x.data==0){
+					$scope.y="Username Available";
+					$scope.cl="green";
+				}
+				else{
+					$scope.cl="red";
+					$scope.y="Username already Registered";
+				} 
+			})
+		}
+		})
+	</script>
+</head>
+<body ng-app="myapp" ng-controller="cOne">
+	
+	UserName :
+	<input type="text" ng-blur="fun()" ng-model="name">
+	<img src="spinner.gif" width="20" ng-show="tmp">
+	<h2 style="color:{{cl}}">{{y}}</h2>
+</body>
+</html>

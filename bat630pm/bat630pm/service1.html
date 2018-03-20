@@ -1,0 +1,22 @@
+<script src="angular.min.js"></script>
+<script>
+app=angular.module("myapp",[])
+app.service("s1",function(){
+this.sermet1=function(){
+	return "From service method"
+}
+this.sermet2=function(){
+return "From met2";
+}
+})
+app.controller("c1",function($scope,s1){
+$scope.fun1=function(){
+	alert(s1.sermet1())
+	alert(s1.sermet2())
+}
+})
+</script>
+<body ng-app="myapp" ng-controller="c1">
+<input type="button" value="Click" ng-click="fun1()">
+
+</body>

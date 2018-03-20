@@ -1,0 +1,19 @@
+<script src="angular.min.js"></script>
+<title>My site</title>
+<script>
+app=angular.module("myapp",[])
+app.controller("c1",function($scope,$window){
+	$scope.fun1=function(){
+		no=$window.prompt("Enter number")
+
+		for(i=1;i<=10;i++)
+		{
+$window.document.write(i+" * "+no+" = "+i*no+"<br>")
+		}
+	}
+})
+</script>
+<body ng-app="myapp" ng-controller="c1">
+<input type="button" value="Create" ng-click="fun1()">
+</body>
+

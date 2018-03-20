@@ -1,0 +1,77 @@
+<script src="angular.min.js"></script>
+<script>
+app=angular.module("myapp",[])
+app.controller("c1",function($scope){
+$scope.btntxt;$scope.t1;$scope.t2;$scope.tmp=false
+	/////Delete
+$scope.fundel=function(i){
+	rv=confirm("You want to delete?")
+	if(rv)
+$scope.obj.splice(i,1)
+}
+/////////////
+$scope.gloind;
+/////common////
+$scope.funcom=function(str,ind){
+	$scope.btntxt=str
+	$scope.t1="";$scope.t2=""
+	$scope.tmp=true;
+	$scope.gloind=ind
+	if(ind>=0)
+	{
+		$scope.t1=$scope.obj[ind].uname
+		$scope.t2=$scope.obj[ind].city
+	}
+}
+/////////////
+/////fun for save/update///
+$scope.funnew=function(){
+	if($scope.btntxt=="Insert")
+	{
+		$scope.obj.push({uname:$scope.t1,city:$scope.t2})
+	}
+	else
+	{
+		$scope.obj[$scope.gloind].uname=$scope.t1
+		$scope.obj[$scope.gloind].city=$scope.t2;
+		$scope.t1=""
+		$scope.t2=""
+		$scope.tmp=false;
+	}
+}
+///////////
+
+$scope.obj=[{
+uname:"scott",city:"Hyd"
+},{
+uname:"Amith",city:"sec"
+},{
+uname:"Sam",city:"Chennai"
+}]
+/////Del all/////
+$scope.fundelall=function(){
+	$scope.obj.splice(0)
+}
+})
+</script>
+<body ng-app="myapp" ng-controller="c1">
+<table border='1'>
+<tr ng-repeat="x in obj">
+<td>{{x.uname}}<td>{{x.city}}
+<td><img src="del.jpg" width="20" ng-click="fundel($index)">
+<img src="edit.jpg" width="20" ng-click="funcom('Save',$index)">
+</tr>
+</table>
+<input type="button" value="Addrec" ng-click="funcom('Insert')">
+<input type="button" value="Del All" ng-click="fundelall()">
+<div ng-show="tmp">
+Name:<input ng-model="t1">
+<br>
+City:<input ng-model="t2">
+<br>
+<input type="button" value="{{btntxt}}" ng-click="funnew()">
+
+</div>
+</body>
+
+

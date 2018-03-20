@@ -1,0 +1,31 @@
+<script src="angular.min.js"></script>
+<script>
+app=angular.module("myapp",[])
+app.controller("c1",function($scope,$http){
+	$scope.t1;$scope.str;$scope.tmp=false
+$scope.fun1=function(){
+	$scope.str=""
+	$scope.tmp=true
+	str="getdata.php?"+$scope.t1
+//	alert(str)
+$http.get(str).then(function(dt){
+	$scope.tmp=false
+if(dt.data==0)
+	{
+	$scope.str="Username Available"
+	$scope.cl="green"
+	}
+else
+	{
+		$scope.cl="red"
+		$scope.str="Username already Registered"
+	}
+})
+}
+})
+</script>
+<body ng-app="myapp" ng-controller="c1">
+Username:<input ng-blur="fun1()" ng-model='t1'>
+<img src="spinner.gif" width="20" ng-show="tmp">
+<span style="color:{{cl}}">{{str}}</span>
+</body>

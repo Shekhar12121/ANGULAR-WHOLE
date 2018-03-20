@@ -1,0 +1,16 @@
+<script src="angular.min.js"></script>
+
+<script>
+app=angular.module("myapp",[])
+
+app.directive("d1",function(){
+return{
+template:"<h1>Scott</h1>",
+restrict:"EA"
+}
+})
+</script>
+<body ng-app="myapp">
+<d1></d1>
+<div d1></div>
+</body>

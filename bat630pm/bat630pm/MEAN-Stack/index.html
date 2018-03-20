@@ -1,0 +1,76 @@
+<script src="angular.min.js"></script>
+<script>
+app=angular.module("myapp",[])
+app.controller("c1",function($scope,$http){
+$scope.tbldata;$scope.t1;$scope.t2;$scope.txt1;$scope.txt2
+$scope.funins=function(){
+	ob={uname:$scope.t1,city:$scope.t2}
+	$http({
+	url:"insdata",method:"post",data:ob
+	}).then(function(dt){
+	alert(dt.data)
+	$scope.funget()
+	})
+}
+$scope.fundel=function(un){
+	object={uname:un}
+	$http({
+	method:"post",url:"delone",data:object
+	}).then(function(data){
+	alert(data.data)
+	$scope.funget()
+	})
+}
+$scope.fundelall=function(){
+	$http.delete("delall").then(function(dt){
+	alert(dt.data)
+	$scope.funget()
+	})
+}
+$scope.funget=function(){
+	$http.get("getdata").then(function(dt){
+	$scope.tbldata=(dt.data)
+	})
+}
+$scope.funedit=function(un,ct){
+	$scope.txt1=un
+	$scope.txt2=ct
+	$scope.old={uname:un,city:ct}
+}
+$scope.funget()
+$scope.funsave=function(){
+	newob={uname:$scope.txt1,city:$scope.txt2}
+arr=[$scope.old,newob]
+$http({
+method:"post",url:"updatedata",data:arr
+}).then(function(dt){
+alert(dt.data)
+$scope.funget()
+})
+}
+})
+</script>
+<body ng-app="myapp" ng-controller="c1">
+<input type="button" value="GetRec" ng-click="funget()">
+<table border='1'>
+<tr ng-repeat="x in tbldata">
+<td>{{x.uname}}</td>
+<td>{{x.city}}</td>
+<td><img src="del.jpg" width="20" ng-click="fundel(x.uname)">
+<img src="edit.jpg" width="20" ng-click="funedit(x.uname,x.city)">
+</tr>
+</table>
+Name:<input ng-model="t1">
+<br>
+City:<input ng-model="t2">
+<br>
+<input type="button" value="Insert" ng-click="funins()">
+<input type="button" value="Delall" ng-click="fundelall()">
+<div>
+<h2>Edit Rec</h2>
+Name:<input ng-model="txt1">
+<br>
+City:<input ng-model="txt2">
+<br>
+<input type='button' value='Save' ng-click="funsave()">
+</div>

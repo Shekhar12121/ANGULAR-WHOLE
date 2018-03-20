@@ -1,0 +1,26 @@
+<script src="angular.min.js"></script>
+<script>
+app=angular.module("myapp",[])
+app.controller("c1",function($scope){
+$scope.fun1=function(e){
+	$scope.msg=""
+	if(e.key!=BackSpace)
+	{
+	if(e.key>=0 && e.key<=9)
+	{
+		//alert("Valid")
+	}
+	else
+	{
+		$scope.msg="Enter numbers only"
+		e.preventDefault()
+	}
+	}
+}
+})
+</script>
+<body ng-app="myapp" ng-controller="c1" >
+Amount:<input type="text" ng-keydown="fun1($event)">
+<br>
+{{msg}}
+</body>

@@ -1,0 +1,12 @@
+<script src="angular.min.js"></script>
+<script>
+app=angular.module("myapp",[])
+app.filter("f1",function(){
+return function(x){
+	return x.toUpperCase()
+}
+})
+</script>
+<body ng-app="myapp" >
+{{'scott' | f1}}
+</body>

@@ -1,0 +1,16 @@
+<script src="angular.min.js"></script>
+<script>
+app=angular.module("myapp",[])
+app.filter("f1",function(){
+return function(y){
+	str=y[0].toUpperCase()
+	str+=y.slice(1)
+	return str
+}
+})
+</script>
+<body ng-app="myapp" ng-init="arr=['scott','amith','john','sam']">
+<li ng-repeat="x in arr">
+{{x | f1}}
+</li>
+</body>

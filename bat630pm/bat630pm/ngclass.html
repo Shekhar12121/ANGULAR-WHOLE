@@ -1,0 +1,13 @@
+<script src="angular.min.js"></script>
+<style>
+.abc{
+color:red;
+
+}
+.xyz{
+color:blue;
+}
+</style>
+<body ng-app ng-init="tmp='xyz'" ng-mouseover="tmp='abc'" ng-mouseout="tmp='xyz'">
+<div ng-class="tmp">Welcome</div>
+</body>

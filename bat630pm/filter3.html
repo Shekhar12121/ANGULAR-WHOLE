@@ -1,0 +1,24 @@
+<script src="angular.min.js"></script>
+<script>
+app=angular.module("myapp",[])
+
+app.controller("c1",function($scope){
+	$scope.tmp=true
+$scope.funins=function(st){
+	$scope.txt1=st
+	$scope.tmp=false
+}
+
+	$scope.txt1;
+	$scope.arr=["scott","amith","john","alex"]
+
+})
+</script>
+<body ng-app="myapp" ng-controller="c1" >
+{{tmp}}
+<input ng-model="txt1" ng-keyup="tmp=true">
+<br>
+<li ng-repeat="x in arr  | filter:txt1" ng-click="funins(x)" ng-show="tmp">
+{{x}}
+</li>
+</body>

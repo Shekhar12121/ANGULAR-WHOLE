@@ -1,0 +1,11 @@
+<script src="angular.min.js"></script>
+<script src="angular-sanitize.js"></script>
+<script>
+app=angular.module("myapp",['ngSanitize'])
+app.controller("c1",function($scope){
+$scope.x="<h1>Scott</h1>";
+})
+</script>
+<body ng-app="myapp" ng-controller="c1">
+<div ng-bind-html="x"></div>
+</body>

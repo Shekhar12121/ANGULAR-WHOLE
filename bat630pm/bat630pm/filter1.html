@@ -1,0 +1,13 @@
+<script src="angular.min.js"></script>
+<body ng-app ng-init="x='Amith';arr=[
+{uname:'scott',city:'Hyd'},{uname:'Amith',city:'sec'},{uname:'John',city:'Chennai'}
+]">
+{{x | uppercase}}
+{{x | lowercase}}
+{{100 | currency}}
+
+<li ng-repeat="x in arr | orderBy:'uname'">
+{{x.uname}}
+</li>
+
+</body>

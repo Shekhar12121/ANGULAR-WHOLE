@@ -1,0 +1,18 @@
+<script src="angular.min.js"></script>
+<style>
+body{
+height:100%;
+}
+</style>
+<script>
+app=angular.module("myapp",[])
+app.controller("c1",function($scope){
+$scope.fun1=function(e){
+
+	alert(e.type)
+}
+})
+</script>
+<body ng-app="myapp" ng-controller="c1" ng-click="fun1($event)" ng-keyup="fun1($event)">
+
+</body>

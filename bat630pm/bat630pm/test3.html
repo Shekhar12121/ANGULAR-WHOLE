@@ -1,0 +1,23 @@
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-cookies.js"></script>
+<script>
+app=angular.module("myapp",['ngCookies'])
+app.controller("c1",function($scope,$cookies){
+$scope.txt1=$cookies.get("un")
+$scope.txt2=$cookies.get("ct")
+$scope.fun2=function(){
+	$cookies.remove("un")
+	$cookies.remove("ct")
+}
+})
+</script>
+<body ng-app="myapp" ng-controller="c1">
+<form action="final.html" ng-submit="fun2()">
+<input ng-model="txt1" name="t1">
+<br>
+<input ng-model="txt2" name="t2">
+<br>
+<input type="submit" value="Send">
+</form>
+</body>

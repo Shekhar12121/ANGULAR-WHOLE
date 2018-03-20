@@ -1,0 +1,8 @@
+<script src="angular.min.js"></script>
+<body ng-app="" ng-init="txt1='Enter'">
+<form action="p11.html" name="f1">
+<input type="text" name="t1" ng-model="txt1" pattern="[5-9 / -]*">
+<span ng-if="f1.t1.$error.pattern">Enter between 5-9</span>
+</form>
+
+</body>

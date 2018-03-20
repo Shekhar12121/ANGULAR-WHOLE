@@ -1,0 +1,12 @@
+<script src="angular.min.js"></script>
+<body ng-app="">
+<form action="p11.html" name="f1">
+<input  name="t1" required minlength="5" ng-model="txt1">
+<span ng-show="f1.t1.$touched && f1.t1.$error.required">Enter Text</span>
+
+<span ng-show="f1.t1.$touched && f1.t1.$error.minlength">Min 5 char</span>
+
+<br>
+<input type="submit" value="Send">
+</form>
+</body>

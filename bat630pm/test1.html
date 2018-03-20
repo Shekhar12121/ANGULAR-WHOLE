@@ -1,0 +1,18 @@
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-cookies.js"></script>
+<script>
+app=angular.module("myapp",['ngCookies'])
+app.controller("c1",function($scope,$cookies){
+$scope.fun1=function(){
+	$cookies.put("un",$scope.t1)
+}
+})
+</script>
+<body ng-app="myapp" ng-controller="c1">
+
+Name:<input ng-model="t1">
+<br>
+<a href="test2.html" ng-click="fun1()">NEXT</a>
+
+</body>

@@ -1,0 +1,30 @@
+<script src="angular.min.js"></script>
+<body ng-app ng-init="x='Apple'">
+{{x}}
+<select ng-model="x">
+<option>All Fruits</option>
+<option>Apple</option>
+<option>Mango</option>
+<option>Cherry</option>
+</select>
+	<div ng-switch="x">
+	 <div ng-switch-when="Apple">
+	 <h2>Apple</h2>
+	 Price:50/- Kg
+	 </div>
+	 <div ng-switch-when="Mango">
+	 <h2>Mango</h2>
+	 Price:150/- Kg
+	 </div>
+	 <div ng-switch-when="Cherry">
+	 <h2>Cherry</h2>
+	 Price:170/- Kg
+	 </div>
+	 <div ng-switch-default>
+	 <h2>All Fruits</h2>
+	 Price:100/- Kg
+	 </div>
+	</div>
+
+
+</body>

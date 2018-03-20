@@ -1,0 +1,13 @@
+<script src="angular.min.js"></script>
+<script>
+app=angular.module("myapp",[])
+app.controller("c1",function($scope){
+$scope.fun1=function(e){
+	if(e.button==2)
+	alert("You can not copy")
+}
+})
+</script>
+<body ng-app="myapp" ng-controller="c1">
+<img src="img2.jpg" width='300' ng-mousedown="fun1($event)">
+</body>

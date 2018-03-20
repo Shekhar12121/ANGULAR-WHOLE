@@ -1,0 +1,31 @@
+<script src="angular.min.js"></script>
+<script>
+app=angular.module("myapp",[])
+app.controller("c1",function($scope,$q){
+	$scope.num=100
+$scope.fun1=function(no){
+	q=$q.defer()
+	if(angular.isNumber(no))
+	{
+		no++;
+		q.resolve(no)
+	}
+	else
+		q.reject("Error")
+		return q.promise;
+}
+$scope.fun1($scope.num).then(function(val){
+alert(val)
+$scope.fun1("scott").then(function(val){
+alert(val)
+$scope.fun1(val).then(function(val){
+alert(val)
+})
+})
+})
+
+
+})
+</script>
+<body ng-app="myapp" ng-controller="c1">
+</body>

@@ -1,0 +1,12 @@
+<user_det>
+<row>
+<uname>Scott</uname>
+<city>Hyd</city>
+</row>
+<row>
+<uname>Amith</uname>
+<city>Sec</.city>
+</row>
+</user_det>
+
+user_det=[{uname:"scott",city:"Hyd"},{uname:"amith",city:"sec"}]

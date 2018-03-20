@@ -1,0 +1,16 @@
+<script src="angular.min.js"></script>
+<script>
+app=angular.module("myapp",[])
+app.directive("d1",function(){
+return{
+template:"<h1>Scott</h1>",
+compile:function(ele){
+alert(ele.html())
+ele.css("color","blue").append("Hi")
+}
+}
+})
+</script>
+<body ng-app="myapp" ng-controller="c1">
+<d1></d1>
+</body>

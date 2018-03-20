@@ -1,0 +1,51 @@
+<script src="angular.min.js"></script>
+<script>
+app=angular.module("myapp",[])
+app.controller("c1",function($scope){
+	$scope.uname;$scope.sal;$scope.nom;$scope.add;
+$scope.fun1=function(){
+	ob1={un:$scope.uname,sa:$scope.sal}
+	ob2={nom:$scope.nom,address:$scope.add}
+	$scope.$broadcast("b1",ob1);
+	$scope.$broadcast("b2",ob2);
+
+}
+})
+app.controller("c2",function($scope){
+	$scope.un;$scope.sa;
+$scope.$on("b1",function(x,y){
+	//console.log(y)
+	$scope.un=y.un
+	$scope.sa=y.sa
+})
+})
+app.controller("c3",function($scope){
+$scope.$on("b2",function(x,y){
+	$scope.no=y.nom
+	$scope.ad=y.address
+})
+})
+</script>
+<body ng-app="myapp" ng-controller="c1">
+Username:<input ng-model="uname">
+<br>
+Salary:<input ng-model="sal">
+<br>
+Nominee:<input ng-model="nom">
+<br>
+Address:<input ng-model="add">
+<br>
+<input type="button" value="Click" ng-click="fun1()">
+<div ng-controller="c2">
+Username:{{un}}
+<br>
+Salary:{{sa}}
+</div>
+<div ng-controller="c3">
+Nominee:{{no}}
+<br>
+Address:{{ad}}
+</div>
+</body>
+
+

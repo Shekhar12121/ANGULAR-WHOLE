@@ -1,0 +1,24 @@
+<script src="angular.min.js"></script>
+<script>
+app=angular.module("myapp",[])
+app.directive("d1",function(s1){
+return{
+	template:s1.sermet1()
+}
+})
+app.service("s1",function(){
+this.sermet1=function(){
+	return "From service method"
+}
+})
+app.controller("c1",function($scope,s1){
+$scope.fun1=function(){
+	alert(s1.sermet1())
+	
+}
+})
+</script>
+<body ng-app="myapp" ng-controller="c1">
+<input type="button" value="Click" ng-click="fun1()">
+<d1></d1>
+</body>

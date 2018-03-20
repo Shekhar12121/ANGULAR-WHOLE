@@ -1,0 +1,25 @@
+<script src="angular.min.js"></script>
+<script>
+app=angular.module("myapp",[])
+app.controller("c1",function($scope){
+$scope.str="uname"
+$scope.fun1=function(){
+	if($scope.str=="uname")
+	$scope.str="-uname"
+	else
+	$scope.str="uname"
+}
+})
+</script>
+<body ng-app="myapp" ng-controller="c1" ng-init="arr=[
+{uname:'scott',city:'Hyd'},{uname:'Amith',city:'sec'},{uname:'John',city:'Chennai'}
+]">
+<table border='1'>
+<th ng-click="fun1()">Username</th>
+<th>City</th>
+<tr ng-repeat="x  in arr | orderBy:str">
+<td>{{x.uname}}
+<td>{{x.city}}
+</tr>
+</table>
+</body>

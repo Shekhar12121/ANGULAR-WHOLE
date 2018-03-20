@@ -1,0 +1,15 @@
+<script src="angular.min.js"></script>
+<body ng-app="">
+<form action="p11.html" name="f1">
+Username:<input type="email" name="t1" required ng-model="txt1">
+<br>
+Valid-{{f1.t1.$valid}}<br>
+Invalid-{{f1.t1.$invalid}}<br>
+Touched-{{f1.t1.$touched}}<br>
+Un Touched-{{f1.t1.$untouched}}<br>
+Not modified-{{f1.t1.$pristine}}<br>
+Modified-{{f1.t1.$dirty}}<br>
+<br>
+<input type="submit" value="Send">
+</form>
+</body>

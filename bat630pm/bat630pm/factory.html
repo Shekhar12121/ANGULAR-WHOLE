@@ -1,0 +1,22 @@
+<script src="angular.min.js"></script>
+<script>
+app=angular.module("myapp",[])
+app.factory("fac1",function(){
+obj={}
+obj.met1=function(){
+	return "From met1";
+}
+obj.met2=function(){
+	return "From met2"
+}
+return obj
+})
+app.controller("c1",function($scope,fac1){
+$scope.fun1=function(){
+	alert(fac1.met1())
+}
+})
+</script>
+<body ng-app="myapp" ng-controller="c1">
+<input type="button" value="Click" ng-click="fun1()">
+</body>

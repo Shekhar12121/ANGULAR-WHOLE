@@ -1,0 +1,35 @@
+<script src="angular.min.js"></script>
+<script>
+app=angular.module("myapp",[])
+app.controller("c1",function($scope,$window){
+	$scope.fun2=function(){
+		$window.clearInterval($scope.t)
+	}
+	$scope.min=3
+	$scope.sec=60
+	$scope.fun1=function(){
+$scope.t=$window.setInterval(function(){
+$scope.sec--
+if($scope.sec==0 && $scope.min==0)
+	{
+		$scope.sec=0;
+		$scope.min=0
+		$window.clearInterval($scope.t)
+	$scope.$digest()
+	}
+else if($scope.sec<=0)
+	{
+$scope.sec=59
+$scope.min--
+	}
+$scope.$digest()
+},100)
+	}
+})
+</script>
+<body ng-app="myapp" ng-controller="c1">
+<input type="button" value="Start" ng-click="fun1()">
+<input type="button" value="Pause" ng-click="fun2()">
+<h2>{{min}}:{{sec}}</h1>
+</body>
+

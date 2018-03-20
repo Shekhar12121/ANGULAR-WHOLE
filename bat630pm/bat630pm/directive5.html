@@ -1,0 +1,28 @@
+<script src="angular.min.js"></script>
+<script>
+app=angular.module("myapp",[])
+app.directive("d1",function(){
+return{
+template:"<p>Welcome{{fun1}}</p>",
+link:function($scope,ele,attr){
+//alert(attr.attr1)
+//alert(attr.attr2)
+ele.css("color",attr.attr1).append("Hi")
+$scope.fun1=function(){
+alert("Exe")
+}
+}
+
+
+}
+})
+</script>
+
+<body ng-app="myapp" >
+<d1 attr1="blue" attr2="abcd"></d1>
+<input type="button" value="Click" ng-click="fun1()">
+
+
+
+
+</body>

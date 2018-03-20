@@ -1,0 +1,12 @@
+<script src="angular.min.js"></script>
+<body ng-app="" >
+<form action="p11.html" name="f1">
+<input type="radio" name="r1" value="m" ng-model="gen" required>Male
+<input type="radio" name="r1" value="f" ng-model="gen" required>FeMale
+{{gen}}
+<span ng-if="f1.r1.$invalid">Select Gender</span>
+<br>
+Url:<input type='url'>
+</form>
+
+</body>

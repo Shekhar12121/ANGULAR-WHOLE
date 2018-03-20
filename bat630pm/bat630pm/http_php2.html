@@ -1,0 +1,18 @@
+<script src="angular.min.js"></script>
+<script>
+app=angular.module("myapp",[])
+app.controller("c1",function($scope,$http){
+	$scope.t1;$scope.str;$scope.tmp=false
+$scope.fun1=function(){
+	$http.get("getfiles.php").then(function(dt){
+	$scope.str=dt.data
+	
+	})
+
+}
+})
+</script>
+<body ng-app="myapp" ng-controller="c1">
+<input type="button" value="Click" ng-click="fun1()">
+<span style="color:{{cl}}">{{str}}</span>
+</body>

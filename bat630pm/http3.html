@@ -1,0 +1,15 @@
+<script src="angular.min.js"></script>
+<script>
+angular.module("myapp",[]).controller("c1",function($scope,$http,$interval){
+	$interval(function(){
+	$http.post("score.html").then(
+	function(dt){
+		
+		$scope.x=dt.data
+	})
+	},1000)
+})
+</script>
+<body ng-app="myapp" ng-controller="c1">
+{{x}}
+</body>

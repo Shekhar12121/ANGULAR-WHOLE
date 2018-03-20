@@ -1,0 +1,28 @@
+<script src="angular.min.js"></script>
+<script>
+app=angular.module("myapp",[])
+app.controller("c1",function($scope){
+	$scope.num=100
+$scope.fun1=function(no){
+	if(angular.isNumber(no))
+	{
+		no++;
+		return no
+	}
+	else
+	alert("Error")
+}
+val=$scope.fun1($scope.num)
+alert(val)
+val=$scope.fun1(val)
+alert(val)
+val=$scope.fun1('xy')
+alert(val)
+val=$scope.fun1(val)
+alert(val)
+val=$scope.fun1(val)
+alert(val)
+})
+</script>
+<body ng-app="myapp" ng-controller="c1">
+</body>

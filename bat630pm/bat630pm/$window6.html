@@ -1,0 +1,16 @@
+<script src="angular.min.js"></script>
+<script>
+app=angular.module("myapp",[])
+app.controller("c1",function($scope,$window){
+$scope.t=$window.setInterval(function(){
+alert("hi")
+},2000)
+$scope.fun2=function(){
+	$window.clearInterval($scope.t)
+}
+})
+</script>
+<body ng-app="myapp" ng-controller="c1">
+<input type="button" value="Click" ng-click="fun2()">
+</body>
+

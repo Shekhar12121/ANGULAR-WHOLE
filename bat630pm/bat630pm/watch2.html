@@ -1,0 +1,22 @@
+<script src="angular.min.js"></script>
+<script>
+app=angular.module("myapp",[])
+app.controller("c1",function($scope){
+$scope.x=100
+$scope.y=200
+$scope.z=$scope.x+$scope.y
+
+$scope.$watchGroup(["x","y"],function(n,o){
+//alert(n)
+//alert(o)
+$scope.z=parseInt($scope.x)+parseInt($scope.y)
+})
+})
+</script>
+<body ng-app="myapp" ng-controller="c1">
+<input ng-model="x">
+<br>
+<input ng-model="y">
+<br>
+<input ng-model="z">
+</body>

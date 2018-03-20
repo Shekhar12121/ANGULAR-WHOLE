@@ -1,0 +1,20 @@
+<script src="angular.min.js"></script>
+<script>
+app=angular.module("myapp",[])
+app.controller("c1",function($scope){
+$scope.obj=[{uname:'scott',city:'Sec'},{uname:'Raj',city:'Hyd'}]
+})
+app.directive("d1",function(){
+return{
+scope:{
+dt:"=data",c1:"=col1",c2:"=col2"
+},
+template:"<h1 style='color:{{c1}}'>Uname:{{dt.uname}}</h1><h2 style='color:{{c2}}'>City:{{dt.city}}</h2><hr>"
+}
+})
+</script>
+<body ng-app="myapp" ng-controller="c1">
+<d1 col1="'red'" col2="'green'" data="obj[0]"></d1>
+<d1 data="obj[1]" col1="'blue'"></d1>
+</body>
+

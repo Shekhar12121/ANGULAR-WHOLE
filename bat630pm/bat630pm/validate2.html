@@ -1,0 +1,10 @@
+<script src="angular.min.js"></script>
+<body ng-app="">
+<form action="p11.html" name="f1">
+Username:<input  name="t1" required ng-model="txt1">
+<span ng-show="f1.t1.$touched && f1.t1.$invalid">Enter Username</span>
+
+<br>
+<input type="submit" value="Send">
+</form>
+</body>

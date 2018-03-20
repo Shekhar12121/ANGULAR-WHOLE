@@ -1,0 +1,3 @@
+<script src="angular.min.js"></script>
+<body ng-app ng-init="x='Apple'">
+</body>

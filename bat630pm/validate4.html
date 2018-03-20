@@ -1,0 +1,16 @@
+<script src="angular.min.js"></script>
+<body ng-app="">
+<form action="p11.html" name="f1">
+Name:<input required minlength="5" ng-model="txt1" name="un">
+<span ng-if="f1.un.$touched && f1.un.$error.required">Enter Name</span>
+<span ng-if="f1.un.$touched && f1.un.$error.minlength">Min ch 5</span>
+<br>
+Age:<input type="number" required ng-model="txtage" name="age" min="10" max="70">
+<span ng-if="f1.age.$touched && f1.age.$error.number">Enter numbers only</span>
+<span ng-if="f1.age.$touched && f1.age.$error.min">Min age should be 10</span>
+<span ng-if="f1.age.$touched && f1.age.$error.max">Max age should < 70</span>
+<br>
+<input type="submit" value="SUBMIT" ng-disabled="f1.un.$invalid || f1.age.$invalid">
+{{f1.un.$invalid}} - {{f1.age.$invalid}}
+</form>
+</body>
